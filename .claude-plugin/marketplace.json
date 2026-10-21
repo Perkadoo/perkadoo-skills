@@ -1,0 +1,17 @@
+{
+  "name": "perkadoo",
+  "owner": {
+    "name": "Perkadoo",
+    "url": "https://perkadoo.com"
+  },
+  "metadata": {
+    "description": "Perkadoo's giveaway skill and MCP server for Claude Code."
+  },
+  "plugins": [
+    {
+      "name": "perkadoo",
+      "source": "./",
+      "description": "Pick giveaway winners fairly and get a results page that proves it."
+    }
+  ]
+}

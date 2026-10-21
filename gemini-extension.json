@@ -1,0 +1,9 @@
+{
+  "name": "perkadoo",
+  "version": "0.1.0",
+  "description": "Pick giveaway winners fairly and get a results page that proves it.",
+  "contextFileName": "GEMINI.md",
+  "mcpServers": {
+    "perkadoo": { "httpUrl": "https://mcp.perkadoo.com/mcp" }
+  }
+}
