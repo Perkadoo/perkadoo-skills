@@ -5,7 +5,7 @@ version: 0.1.0
 metadata:
   openclaw:
     emoji: "🎁"
-    homepage: https://perkadoo.com/docs/api/mcp
+    homepage: https://perkadoo.com
 ---
 
 # Run a giveaway with Perkadoo
