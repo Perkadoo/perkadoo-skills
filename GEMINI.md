@@ -6,9 +6,8 @@ Perkadoo picks winners with randomness nobody controls, then publishes a results
 
 Look for a `draw_winners` tool. If there isn't one, ask the user to add a custom connector:
 
-- `https://mcp.perkadoo.com/public/mcp` needs no account. It covers drawing from a list.
-- `https://mcp.perkadoo.com/mcp` signs in with Perkadoo. It adds hosted giveaways with an entry page.
-- `https://mcp.perkadoo.com/mcp/full` is the same signed-in server with every tool listed, including Instagram entries and entry review. Use it if the user wants those from chat.
+- `https://mcp.perkadoo.com/mcp` needs no account to draw from a list or read a YouTube video's comments. It asks the user to sign in with Perkadoo when they want a hosted giveaway with an entry page.
+- `https://mcp.perkadoo.com/mcp/full` is the same server with every tool listed, including post entries and entry review. Use it if the user wants those from chat.
 
 ## Pick the path
 
@@ -19,7 +18,7 @@ If unsure, ask where the entries are coming from. Most creators mean comments on
 
 ## Draw from a list
 
-1. **Get the entrants.** Ask the user to paste the comments or export. Don't guess or invent names.
+1. **Get the entrants.** For a YouTube video, call `read_post_comments` with its link. For anything else, including Instagram, ask the user to paste the comments or export. Don't guess or invent names.
 2. **Clean the list.**
    - One line per entry, using the handle or name only.
    - Remove the user's own account and obvious bots.
@@ -43,12 +42,12 @@ Limits: 10,000 entrants and 100 winners per draw.
 
 ## Hosted giveaway
 
-Needs the signed-in connector and a Starter plan.
+Needs the signed-in connector. The free plan runs one live giveaway with up to 250 entrants; paid plans run more.
 
 1. Call `list_projects` to find the brand. Its `id` is the `brandId`.
 2. Call `create_giveaway` with the name, open and close times, timezone, winner count and prizes. It returns a draft with a preview link and a `dashboardUrl`.
 3. **A person approves it.** Send the user the `dashboardUrl`. You can't approve it.
-4. **To enter an Instagram post's commenters:** ask the user to add the post from the `dashboardUrl`. On the `/mcp/full` connector you can do it yourself: call `list_social_accounts`, then `list_social_media` to find the post, then `add_giveaway_instagram_post`. The Instagram account must be connected in the dashboard first.
+4. **To enter a post's commenters:** ask the user to add the post from the `dashboardUrl`. On the `/mcp/full` connector you can do it yourself: call `list_social_accounts`. If it returns the brand's Instagram account, call `list_social_media` to find the post, then `add_giveaway_instagram_post`. Otherwise add a YouTube link with `add_giveaway_post`, or the pasted comments with `add_giveaway_pasted_source`.
 5. While it runs, use `get_giveaway` and `list_giveaway_entries` to report numbers. To remove entries the user flags, send them to the `dashboardUrl`, or on `/mcp/full` call `set_giveaway_entry_status` or `set_giveaway_social_entrant_status`. `list_giveaway_activity` there shows the newest entrants.
 6. **A person draws the winners** in the dashboard once it closes. Perkadoo emails them when it's time. Afterwards, `get_giveaway` returns the winners and the results link.
 

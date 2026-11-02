@@ -1,0 +1,10 @@
+{
+  "name": "perkadoo",
+  "version": "0.1.0",
+  "description": "Pick giveaway winners fairly and get a results page that proves it. Adds the Perkadoo giveaway skill and the Perkadoo MCP server.",
+  "author": { "name": "Perkadoo" },
+  "homepage": "https://perkadoo.com/docs/api/mcp",
+  "repository": "https://github.com/perkadoo/perkadoo-skills",
+  "license": "MIT",
+  "keywords": ["giveaway", "winner picker", "comment picker", "drand", "verifiable draw", "creators"]
+}

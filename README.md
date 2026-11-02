@@ -23,7 +23,7 @@ This repo has the Perkadoo giveaway skill and the config to connect the [Perkado
 gemini extensions install https://github.com/perkadoo/perkadoo-skills
 ```
 
-**Cursor:** [add the Perkadoo MCP server](cursor://anysphere.cursor-deeplink/mcp/install?name=perkadoo&config=eyJ1cmwiOiJodHRwczovL21jcC5wZXJrYWRvby5jb20vbWNwIn0=), or add this to `~/.cursor/mcp.json`:
+**Cursor:** install this repo as a plugin (it ships `.cursor-plugin/plugin.json`, `mcp.json` and the skill), or [add the Perkadoo MCP server](cursor://anysphere.cursor-deeplink/mcp/install?name=perkadoo&config=eyJ1cmwiOiJodHRwczovL21jcC5wZXJrYWRvby5jb20vbWNwIn0=), or add this to `~/.cursor/mcp.json`:
 
 ```json
 { "mcpServers": { "perkadoo": { "url": "https://mcp.perkadoo.com/mcp" } } }
@@ -35,6 +35,8 @@ gemini extensions install https://github.com/perkadoo/perkadoo-skills
 [mcp_servers.perkadoo]
 url = "https://mcp.perkadoo.com/mcp"
 ```
+
+**OpenClaw:** the skill is in `clawhub/perkadoo/SKILL.md`. Add `https://mcp.perkadoo.com/mcp` as an MCP server too.
 
 **Any other MCP client:** connect `https://mcp.perkadoo.com/mcp` over streamable HTTP.
 
